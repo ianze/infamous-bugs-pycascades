@@ -1,0 +1,347 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <title>THE STORIES OF THE MOST INFAMOUS BUGS</title>
+
+    <link rel="stylesheet" href="css/reveal.css">
+    <link rel="stylesheet" href="css/theme/sky.css">
+
+</head>
+<body>
+<div class="reveal">
+    <div class="slides">
+        <section>
+                <h2>The Stories of The Most Infamous Bugs</h2>
+                <h4>Ian Zelikman</h4>
+            <br>
+                <p>
+                    @izcoder<br/>
+                    ian.zelikman@gmail.com
+                </p>
+            <aside class="notes">
+Thanks you to Conference organizers, and everyone who helped setup this event.<br>
+Developer for 15+ years<br>
+DE & Backend web services<br>
+Nuna, Inc<br>
+            </aside>
+        </section>
+        <section>
+            <h1>Motivation</h1>
+            <aside class="notes">
+Have given variations of this presentation before and enjoy a lot giving it<br>
+
+Learn more about these bugs and inspire you to learn from these famous bugs/History buff<br>
+
+Limited learning from bugs in our industry<br>
+            </aside>
+        </section>
+        <section>
+            <h2>What Is A Bug</h2>
+            <aside class="notes">
+Wikipedia: "A software bug is an error, flaw, failure or fault in a computer program or system that causes
+            it to produce an incorrect or unexpected result, or to behave in unintended ways."
+            </aside>
+        </section>
+        <section>
+            <h2>Bug Etymology and History</h2>
+
+            <img class="stretch" style="..." src="img/thomas_edison_letter.jpg">
+            <aside class="notes">
+bugge, bugbear and bugaboo - origins of the word bug and describe a monster<br>
+
+Thomas Edison - mechanical malfunction, 1878. Early adaptor but not first one.<br>
+
+Military gear during world war II<br>
+
+Isac Asimov 1944 - Catch That Rabbit<br>
+            </aside>
+        </section>
+        <section>
+            <h2>First Bug In Software</h2>
+            <img class="stretch" style="height: 609px; width: 512.77px;" src="img/first_bug.jpg">
+            <aside class="notes">
+September 9 1947 MARK II computer at Harvard University<br>
+
+Moth - shorted out relay number 70 of Panel F<br>
+
+Grace Hopper - navy rear admiral - terminology - debugged<br>
+
+Stored at National Museum of American History of the Smithsonian Institution.
+            </aside>
+        </section>
+        <section>
+            <h1>Infamous Bugs</h1>
+            <aside class="notes">
+We will talk about bugs that have issues in functionality.<br>
+
+Space bugs are interesting and also have a big impact.<br>
+            </aside>
+        </section>
+        <section>
+            <section>
+                <h1>Mars Climate Orbiter</h1>
+                <img class="stretch" style="..." src="img/mars_surveyor.png">
+                <aside class="notes">
+Launched in 12/11/1998<br>
+
+Porpuse: Collect climate info. Water distribution. Temperature profile of the atmosphere<br>
+
+Past climate change.<br>
+                </aside>
+            </section>
+            <section>
+                <h2>Loss Of Contact</h2>
+                <img width="400" style="..." src="img/orbiter_trajectory.png">
+                <img width="400" style="..." src="img/orbit.png">
+                <aside class="notes">
+Final maneuver(Orbital Insertion) - 9/23/99<br><br>
+
+Lokheed Martin - Thrusters(US/Non SI). Nasa - Orbit calculation - (Metric/SI) <br>
+The thrusters were 4.45 times more powerful <br>
+
+Wrong altitude and angle for the last orbiting maneuvers.<br>
+                </aside>
+            </section>
+            <section>
+            <h2>The Result</h2>
+            <img width="400" style="..." src="img/mars_orbiter_assembly.jpg">
+            <img width="400" style="..." src="img/mars_orbiter_assembly_2.jpg">
+            <aside class="notes">
+Total Cost: $327.6M<br><br>
+4 years of research and development<br><br>
+Part of a series of missions
+            </aside>
+        </section>
+            <section>
+                <h2>Why This Bug</h2>
+                <img class="stretch" style="..." src="img/bug_1.jpg">
+                <aside class="notes">
+Specification and E2E tests<br><br>
+Bug Report Procedures<br><br>
+Communication between teams (not just machines)<br><br>
+                </aside>
+            </section>
+        </section>
+        <section>
+            <section>
+                <h2>Ariane 5 Explosion</h2>
+                <img class="stretch" style="..." src="img/ariane_5_explosion.png">
+                <aside class="notes">
+The rocket was carrying 4 satellites. Designed to for a constellation<br>
+
+Key in exploring earth magnetic field, interaction with sun and space weather<br>
+
+June 4th 1996 - failed (37)40 seconds into launch.<br>
+
+https://www.youtube.com/watch?v=gp_D8r-2hwk<br><br>
+                </aside>
+            </section>
+            <section>
+                <h2>Overflow</h2>
+                <img class="stretch" style="..." src="img/ariane5_code.png">
+                <aside class="notes">
+Countdown postponed and resumed too fast. IRS - <b>Inertial Reference System</b>
+This Diagnosis subroutine running during flight, but shouldn't have and wouldn't on the model4.<br><br>
+
+Overflow due to high altitude. In the ada code we see here (red variable)<br>
+Ada code. 64-bit floating point number to a 16-bit signed integer<br>
+4 out of 7 variables protected from overflow<br><br>
+
+Both IRS1 & 2 failed same way.
+                </aside>
+            </section>
+            <section>
+                <h2>The Results</h2>
+                <img class="stretch" style="..." src="img/launch_stats.png">
+                <aside class="notes">
+Total Cost of $370M (rocket and cluster satellites)<br>
+Setback of years(4) for the cluster mission<br>
+Hurt ESA reputation for successful launches - 2007 - back to same rate<br>
+July 16, 2000 - launched by Russia<br>
+
+Large scale static analysis.<br>
+                </aside>
+            </section>
+                <section>
+                    <h2>Why This Bug</h2>
+                <img class="stretch" style="..." src="img/bug_2.jpg">
+                <aside class="notes">
+Reuse of a software package(it worked very well on the model 4)<br><br>
+Having a backup system does not work if both fail in the same way.
+                </aside>
+            </section>
+        </section>
+        <section>
+            <section>
+                <h2>AT&T Long Distance</h2>
+                <img class="stretch" style="..." src="img/alexander_bell_new_york_chicago.jpg">
+                <aside class="notes">
+Alexander Bell placing the first call between new york and chicago.<br>
+
+January 15 1990 no long distance phone calls at AT&T<br>
+
+For 9 hours engineers working to resolve. Even with law enforcement<br>
+                </aside>
+            </section>
+            <section class="center">
+                <h2>Call Waiting...</h2>
+                <img class="stretch" style="..." src="img/4ESS.jpg">
+                <aside class="notes">
+114 computer-operated electronic switches (4ESS) - First switch (in NY) congested. <br>
+
+Once back in operation the switch started sending the messages in queue.<br>
+Handling these messages by other switches was the improved code - two messages too fast<br>
+Second switch goes down - cascading effect
+                </aside>
+            </section>
+            <section>
+                <h2>The Results</h2>
+                <img class="stretch" style="..." src="img/att_logo.jpeg">
+                <aside class="notes">
+$60M in long distance calls<br>
+9 hours outage time<br>
+75M phone calls<br>
+200,000 airline reservations<br>
+Brand/PR damage - AT&T build it's brand as reliable system.<br>
+The whole system was designed for reliability - components would monitor health of other components<br>
+There was no way to recover from all components having such an issue.
+                </aside>
+            </section>
+            <section>
+                <h2>Why This Bug</h2>
+                <img class="stretch" style="..." src="img/bug_3.jpg">
+                <aside class="notes">
+Improving component performance can lead to adverse effect<br>
+Consider each change on the whole system<br>
+                </aside>
+            </section>
+        </section>
+        <section>
+            <section>
+                <h2>Patriot System Failure</h2>
+                <img class="stretch" style="..." src="img/patriot_system.jpg">
+                <aside class="notes">
+surface-to-air missile - Patriot used since the 80s. 90s - first time against scud missiles.<br>
+
+Deployed to several allies in the middle east. Including Israel and Saudi Arabia.<br>
+On February 25th 1991 a scud missile that has been fired at a US Air base in Daharan.<br>
+
+The system detected the missile but there was no intercept<br>
+                </aside>
+            </section>
+            <section>
+                <h2>Failure At Dahhran</h2>
+                <img width="300" style="..." src="img/patriot_calculation_correct.png">
+                <img width="300" style="..." src="img/patriot_calculation_20_shift.png">
+                <img width="300" style="..." src="img/patriot_calculation_incorrect.png">
+                <aside class="notes">
+Very left explain how system works - then operations after 8 hours - and after 20 - series of radar pulses<br>
+System relies on time since it started - store time up to 1/10 in 24 bit register. - <br>
+We loose precision and since a routine that was making more accurate only in some parts in code<br><br>
+
+Daharan system 100 hours, 8 hours - 20%. 20 hours - unusable <br>
+                </aside>
+            </section>
+            <section>
+                <h2>The Results</h2>
+                <img class="stretch" style="..." src="img/strike_impact.jpeg">
+                <aside class="notes">
+Direct hit on the barracks<br>
+28 killed<br>
+110 injured<br>
+Mainly reserve duty personal from Pennsylvania.<br>
+It help to spark a debate over the system accuracy.
+                </aside>
+            </section>
+            <section>
+                <h2>Why This Bug</h2>
+                <img class="stretch" style="..." src="img/bug_4.jpg">
+                <aside class="notes">
+The issue reported (two weeks before) but not prioritized<br>
+A gap between how the system is used and how it was assumed to be used<br>
+A fix was delivered to the army the next day<br>
+                </aside>
+            </section>
+        </section>
+        <section>
+            <section>
+                <h2>World End 1983</h2>
+                <img class="stretch" style="..." src="img/war_games_1983.jpg">
+                <aside class="notes">
+Movie war games. 3 months before this incident<br>
+
+Heightened tensions as Russia (3 weeks before) shutdown a south korean aircraft the mistakenly got into Russian airspace<br>
+NATO just started a massive drill.<br>
+
+September 26th 1983, alert of 5 incoming missiles.<br>
+
+Report of multiple launches went straight up chain of command<br>
+
+Lt. Colonel Stanislaus Petrov<br>
+                </aside>
+            </section>
+            <section>
+                <h2>False Alarm</h2>
+                <img class="stretch" style="..." src="img/sun_clouds.jpg">
+                <aside class="notes">
+It is hard to find information about the actual fail.<br>
+
+Wide coverage of clouds - sun rays reflected into IR sensors<br>
+
+Probably first time for this set of conditions
+                </aside>
+            </section>
+            <section>
+                <h2>The Result</h2>
+                <img class="stretch" style="..." src="img/atom_blast.jpg">
+                <aside class="notes">
+The world didn't end. Explosion like this did not happen.<br>
+
+Less confidence in the system by Russian leaders<br>
+                </aside>
+            </section>
+            <section>
+                <h2>Why This Bug</h2>
+                <img class="stretch" style="..." src="img/bug_5.jpg">
+                <aside class="notes">
+This kind of system every condition is important to test<br>
+Human Intervention - no proof this is false alarm. Hunch more rockets will be fired.<br>
+                </aside>
+            </section>
+        </section>
+        <section>
+            <h3>How Not To Create A Famous Bug</h3>
+            <aside class="notes">
+                Common: more E2E testing, edge cases (unique circumstances).<br>
+                Important: Learn from other people mistakes.<br>
+            </aside>
+        </section>
+    </div>
+</div>
+
+<script src="lib/js/head.min.js"></script>
+<script src="js/reveal.js"></script>
+
+<script>
+    // More info https://github.com/hakimel/reveal.js#configuration
+    Reveal.initialize({
+        history: true,
+
+        // More info https://github.com/hakimel/reveal.js#dependencies
+        dependencies: [
+            {src: 'plugin/markdown/marked.js'},
+            {src: 'plugin/markdown/markdown.js'},
+            {src: 'plugin/notes/notes.js', async: true},
+            {
+                src: 'plugin/highlight/highlight.js', async: true, callback: function () {
+                    hljs.initHighlightingOnLoad();
+                }
+            }
+        ]
+    });
+</script>
+</body>
+</html>
